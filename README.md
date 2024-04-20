@@ -1,3 +1,3 @@
-# Bizpage
+# Next Solutions
 
-https://rodrigoguzmandiaz.github.io/Bizpage/
+https://rodrigoguzmandiaz.github.io/NexTech_Solutions/

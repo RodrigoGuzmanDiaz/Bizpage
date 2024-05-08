@@ -205,3 +205,126 @@
 
 })(jQuery);
 
+
+
+//Variables para la vista de Mision
+let displayM = document.querySelector('.displayM');
+let mision = document.querySelector('.mision');
+let btcerrarM = document.querySelector('.cerrarM');
+
+//Variables para la vista de Plan
+let displayP = document.querySelector('.displayP');
+let plan = document.querySelector('.plan');
+let btcerrarP = document.querySelector('.cerrarP');
+
+//Variables para la vista de Vision
+let displayV = document.querySelector('.displayV');
+let vision = document.querySelector('.vision');
+let btcerrarV = document.querySelector('.cerrarV');
+
+/*-----------------------------------------*/
+function misionV(){
+ displayM.setAttribute('class', 'displayM');
+ displayM.classList.add('divSi');
+ displayM.classList.add('entrance');
+}mision.addEventListener('click', misionV);
+
+function cerrarM(){
+  displayM.classList.add('exit');
+  setTimeout(() =>{
+    displayM.setAttribute('class', 'displayM');
+  }, 1000)
+}btcerrarM.addEventListener('click', cerrarM);
+
+/*-----------------------------------------*/
+function planV(){
+  displayP.setAttribute('class', 'displayP');
+  displayP.classList.add('divSi');
+  displayP.classList.add('entrance');
+}plan.addEventListener('click', planV);
+
+function cerrarP(){
+  displayP.classList.add('exit');
+  setTimeout(() =>{
+    displayP.setAttribute('class', 'displayP');
+  }, 1000)
+}btcerrarP.addEventListener('click', cerrarP);
+
+
+/*-----------------------------------------*/
+function visionV(){
+  displayV.setAttribute('class', 'displayV');
+  displayV.classList.add('divSi');
+  displayV.classList.add('entrance');
+}vision.addEventListener('click', visionV);
+
+function cerrarV(){
+  displayV.classList.add('exit')
+  setTimeout(() =>{
+    displayV.setAttribute('class', 'displayV');
+  }, 1000)
+}btcerrarV.addEventListener('click', cerrarV);
+
+/*************************************************************/
+let misionbtn2 = document.getElementById('mision2');
+let misionbtn3 = document.getElementById('mision3');
+
+
+function misionChange(){
+  displayM.setAttribute('class', 'displayM');
+  displayP.setAttribute('class', 'displayP');
+  displayV.setAttribute('class', 'displayV');
+  setTimeout(() =>{
+    displayM.classList.add('divSi');
+    displayM.classList.add('entrance');
+  }, 200);
+}
+misionbtn2.addEventListener('click', misionChange);
+misionbtn3.addEventListener('click', misionChange);
+
+
+/*************************************************************/
+let planbtn1 = document.getElementById('plan1');
+let planbtn3 = document.getElementById('plan3');
+
+function planChange(){
+  displayM.setAttribute('class', 'displayM');
+  displayP.setAttribute('class', 'displayP');
+  displayV.setAttribute('class', 'displayV');
+  setTimeout(() =>{
+    displayP.classList.add('divSi');
+    displayP.classList.add('entrance');
+  }, 200);
+}
+planbtn1.addEventListener('click', planChange);
+planbtn3.addEventListener('click', planChange);
+
+/*************************************************************/
+let visionbtn1 = document.getElementById('vision1');
+let visionbtn2 = document.getElementById('vision2');
+function visionChange(){
+  displayM.setAttribute('class', 'displayM');
+  displayP.setAttribute('class', 'displayP');
+  displayV.setAttribute('class', 'displayV');
+  setTimeout(() =>{
+    displayV.classList.add('divSi');
+    displayV.classList.add('entrance');
+  }, 200);
+}
+visionbtn1.addEventListener('click', visionChange);
+visionbtn2.addEventListener('click', visionChange);
+
+/********************************
+ * 
+ * 
+ ***************************/
+
+let formacion = document.querySelector('.formacion');
+function serviciosAlineacion(){
+  servicios.classList.toggle('mover')
+}formacion.addEventListener('click', serviciosAlineacion);
+
+
+document.getElementById("formacion").addEventListener("click", function() {
+  this.classList.toggle("mover");
+});

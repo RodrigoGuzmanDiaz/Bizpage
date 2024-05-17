@@ -301,12 +301,22 @@ h6 {
   margin: 10px;
   color: #fff;
   background: #18d26e;
+  border: 2px solid #39ff14; /* Borde neón */
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14; /* Efecto neón */
 }
 
 #intro .btn-get-started:hover {
   background: #fff;
   color: #18d26e;
 }
+
+#intro .btn-get-started:active {
+  background: #ff5733; /* Color de fondo al hacer clic */
+  color: #fff; /* Color de letras al hacer clic */
+  border-color: #ff5733; /* Cambio de color del borde al hacer clic */
+  box-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733; /* Efecto neón al hacer clic */
+}
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -339,7 +349,7 @@ h6 {
 }
 
 .nav-menu li:hover > ul,
-.nav-menu li.sfHover > ul {
+.nav-menu li.menu-active > ul {
   display: block;
 }
 
@@ -350,6 +360,62 @@ h6 {
 
 .nav-menu ul li {
   min-width: 180px;
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.2s ease-in;
+}
+
+.nav-menu a:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+}
+
+.nav-menu a:hover::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  transform: skewX(-20deg);
+  animation: sh02 0.5s 0s linear;
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.nav-menu a:active {
+  box-shadow: 0 0 0 0 transparent;
 }
 
 /* Nav Menu Arrows */
@@ -605,10 +671,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #featured-services {
   background: #000;
+  overflow: hidden; /* Esto es importante para evitar que los elementos se desborden cuando se apliquen transformaciones */
 }
 
 #featured-services .box {
   padding: 30px 20px;
+  transition: transform 0.3s ease; /* Transición suave para el efecto de movimiento */
+}
+
+#featured-services .box:hover {
+  transform: rotateY(10deg) rotateX(10deg); /* Rotación en 3D cuando se pasa el cursor sobre el elemento */
 }
 
 #featured-services .box-bg {
@@ -837,16 +909,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Call To Action Section
 --------------------------------*/
 
-#skills {
+.skills-content {
   padding: 60px 0;
 }
 
-#skills .progress {
+.progress {
   height: 35px;
   margin-bottom: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-#skills .progress .skill {
+.progress .skill {
   font-family: "Open Sans", sans-serif;
   line-height: 35px;
   padding: 0;
@@ -854,17 +929,32 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-transform: uppercase;
 }
 
-#skills .progress .skill .val {
+.progress .skill .val {
   float: right;
   font-style: normal;
   margin: 0 20px 0 0;
 }
 
-#skills .progress-bar {
-  width: 1px;
+.progress-bar {
+  width: 0;
+  height: 100%;
   text-align: left;
-  transition: .9s;
+  transition: width 2s; /* Ajusta la duración de la transición si es necesario */
 }
+
+.bg-success { background-color: #28a745; }
+.bg-info { background-color: #17a2b8; }
+.bg-warning { background-color: #ffc107; }
+.bg-danger { background-color: #dc3545; }
+.bg-success2 { background-color: #68a063; }
+
+/* Clases para definir el ancho final de la barra */
+.progress-bar.bg-success.animate { width: 100%; }
+.progress-bar.bg-info.animate { width: 94%; }
+.progress-bar.bg-warning.animate { width: 92%; }
+.progress-bar.bg-danger.animate { width: 90%; }
+.progress-bar.bg-success2.animate { width: 100%; }
+
 
 /* Facts Section
 --------------------------------*/
